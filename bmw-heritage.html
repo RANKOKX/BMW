@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111e">
+  <meta name="description" content="BMW Archive — l'exposition interactive des automobiles BMW, de 1928 à aujourd'hui.">
+  <title>BMW ARCHIVE — L'histoire en mouvement</title>
+  <link rel="stylesheet" href="bmw-heritage.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="#accueil" aria-label="BMW Archive accueil">
+      <span class="roundel" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span><b>BMW</b><small>ARCHIVE</small></span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#catalogue">Catalogue</a>
+      <a href="#chronologie">Chronologie</a>
+      <a href="#technologie">Technologie</a>
+      <a href="#garage">Garage</a>
+    </nav>
+    <div class="top-actions">
+      <button class="mini-action" id="themeButton" type="button" aria-label="Changer de thème">◐</button>
+      <button class="mini-action" id="favoritesButton" type="button" aria-label="Afficher mes favoris">♡ <span id="favoriteCount">0</span></button>
+      <button class="menu-button" id="menuButton" type="button" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </header>
+
+  <main id="accueil">
+    <section class="hero">
+      <div class="hero-inner layout">
+        <div class="hero-copy">
+          <p class="kicker"><span class="pulse"></span> Musée numérique · 1928—2024</p>
+          <h1>Le plaisir de<br><em>conduire</em> raconté.</h1>
+          <p class="hero-lead">Explorez l'histoire complète des automobiles BMW : les icônes, les innovations, les chiffres et les voitures qui ont changé la route.</p>
+          <div class="hero-buttons"><a class="button button-blue" href="#catalogue">Explorer le catalogue <span>↓</span></a><button class="button button-line" id="heroRandom" type="button">Lancer une découverte <span>↗</span></button></div>
+          <div class="hero-index"><span>01</span><i></i><span>18 modèles sélectionnés</span></div>
+        </div>
+        <div class="hero-art" aria-label="Illustration d'une BMW M3 E30">
+          <div class="art-grid"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-caption"><span>BMW M3 E30</span><b>1986 / E30</b></div>
+          <div class="speed-lines"></div>
+          <div class="car-illustration hero-car-illustration" data-type="coupe" data-color="blue"><span class="car-shadow"></span><span class="car-body"></span><span class="car-window"></span><span class="car-light"></span><span class="car-wheel wheel-a"></span><span class="car-wheel wheel-b"></span><span class="car-stripe"></span></div>
+          <div class="hero-spec"><small>Icône de l'année</small><strong>M3 E30</strong><span>195 ch · 1 200 kg</span><i></i></div>
+        </div>
+      </div>
+      <div class="hero-bottom layout"><span>SCROLL TO DISCOVER</span><span class="arrow-down">↓</span><span>Munich / Allemagne</span></div>
+    </section>
+
+    <section class="numbers layout" aria-label="Chiffres BMW">
+      <div><strong>96</strong><span>modèles documentés</span></div><div><strong>7</strong><span>décennies de design</span></div><div><strong>12M+</strong><span>BMW produites</span></div><div><strong>∞</strong><span>histoires à conduire</span></div>
+    </section>
+
+    <section class="catalogue layout section" id="catalogue">
+      <div class="section-top"><div><p class="kicker">02 / Le catalogue</p><h2>Toutes les<br><em>légendes.</em></h2></div><div class="section-note"><span>ARCHIVE INDEX</span><p>Un index vivant des modèles qui ont défini le caractère BMW, des roadsters d'avant-guerre aux machines électriques.</p></div></div>
+      <div class="catalog-controls">
+        <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Chercher une BMW, une année, un moteur..." autocomplete="off"><kbd>⌘ K</kbd></label>
+        <div class="control-row"><div class="filters" id="filters"><button class="filter active" data-filter="all" type="button">Tout <b>18</b></button><button class="filter" data-filter="heritage" type="button">Heritage</button><button class="filter" data-filter="motorsport" type="button">M Motorsport</button><button class="filter" data-filter="luxury" type="button">Luxury</button><button class="filter" data-filter="electric" type="button">BMW i</button></div><select id="sort" aria-label="Trier les modèles"><option value="featured">À la une</option><option value="oldest">Plus ancien</option><option value="newest">Plus récent</option><option value="power">Puissance</option></select></div>
+      </div>
+      <div class="catalog-status"><span><b id="resultCount">18</b> automobiles dans la sélection</span><span id="selectionStatus">Cliquez sur une fiche pour ouvrir son dossier</span></div>
+      <div class="model-grid" id="modelGrid"></div>
+      <div class="empty" id="emptyState" hidden><strong>Pas de résultat.</strong><span>Essayez “M3”, “électrique” ou une année.</span><button class="button button-line" id="resetSearch" type="button">Réinitialiser</button></div>
+    </section>
+
+    <section class="timeline-section section" id="chronologie">
+      <div class="layout"><div class="section-top light"><div><p class="kicker">03 / Chronologie</p><h2>De l'hélice<br>à <em>l'éclair.</em></h2></div><div class="section-note"><span>THE BMW STORY</span><p>Les dates qui ont fait passer BMW de constructeur d'avions à laboratoire de mobilité.</p></div></div>
+        <div class="timeline-wrap"><div class="timeline-line"></div><div class="timeline" id="timeline"><button class="time-point active" data-year="1930"><b>1936</b><span>328</span></button><button class="time-point" data-year="1950"><b>1956</b><span>507</span></button><button class="time-point" data-year="1970"><b>1972</b><span>3.0 CSL</span></button><button class="time-point" data-year="1980"><b>1986</b><span>M3 E30</span></button><button class="time-point" data-year="1990"><b>1999</b><span>Z8</span></button><button class="time-point" data-year="2000"><b>2004</b><span>1M</span></button><button class="time-point" data-year="2020"><b>2022</b><span>i7</span></button></div></div>
+        <div class="timeline-story" id="timelineStory"><div class="story-visual"><span class="story-year">1936</span><div class="car-illustration story-car" data-type="roadster" data-color="silver"><span class="car-shadow"></span><span class="car-body"></span><span class="car-window"></span><span class="car-light"></span><span class="car-wheel wheel-a"></span><span class="car-wheel wheel-b"></span><span class="car-stripe"></span></div></div><div class="story-copy"><p class="kicker">1936 — 1939 / Le commencement</p><h3>La BMW 328<br><em>prend la route.</em></h3><p>Avec son six-cylindres en ligne et sa carrosserie légère, la 328 gagne les courses qui comptent et installe la recette BMW : équilibre, précision et plaisir.</p><div class="story-data"><div><b>80 ch</b><span>Puissance</span></div><div><b>830 kg</b><span>Poids à vide</span></div><div><b>464</b><span>Exemplaires</span></div></div><button class="text-button" id="storyExplore" type="button">Ouvrir le dossier 328 <span>→</span></button></div></div>
+      </div>
+    </section>
+
+    <section class="technology section layout" id="technologie">
+      <div class="section-top"><div><p class="kicker">04 / ADN technique</p><h2>Des idées<br><em>en avance.</em></h2></div><div class="section-note"><span>ENGINEERING DNA</span><p>Les technologies ne sont pas des options. Elles sont la signature qui relie chaque génération.</p></div></div>
+      <div class="tech-grid"><article class="tech-card tech-blue"><span class="tech-number">01</span><div class="tech-icon">⌁</div><h3>Six en ligne</h3><p>L'architecture BMW par excellence : onctuosité, son métallique et équilibre parfait.</p><b>1929 → aujourd'hui</b></article><article class="tech-card tech-dark"><span class="tech-number">02</span><div class="tech-icon">✦</div><h3>M Motorsport</h3><p>La compétition comme terrain d'essai. Des victoires qui deviennent des voitures de route.</p><b>1972 → aujourd'hui</b></article><article class="tech-card tech-acid"><span class="tech-number">03</span><div class="tech-icon">ϟ</div><h3>BMW i</h3><p>Carbone, électrons et nouveaux usages : le plaisir n'a pas besoin de carburant.</p><b>2011 → demain</b></article></div>
+    </section>
+
+    <section class="garage section" id="garage"><div class="layout"><div class="garage-banner"><div><p class="kicker">05 / Votre garage</p><h2>Construisez votre<br><em>collection.</em></h2><p>Marquez vos coups de cœur et comparez deux BMW côte à côte. Votre sélection reste enregistrée sur cet appareil.</p><button class="button button-blue" id="garageButton" type="button">Voir ma sélection <span>→</span></button></div><div class="garage-art"><div class="garage-ring"></div><div class="car-illustration mini-car" data-type="sedan" data-color="white"><span class="car-shadow"></span><span class="car-body"></span><span class="car-window"></span><span class="car-light"></span><span class="car-wheel wheel-a"></span><span class="car-wheel wheel-b"></span><span class="car-stripe"></span></div></div></div></div></section>
+  </main>
+
+  <footer class="footer"><div class="layout footer-main"><a class="wordmark" href="#accueil"><span class="roundel" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span><b>BMW</b><small>ARCHIVE</small></span></a><p>Une archive indépendante pour les passionnés.<br>BMW Archive n'est pas un site officiel BMW AG.</p><div class="footer-nav"><a href="#catalogue">Catalogue</a><a href="#chronologie">Chronologie</a><a href="#technologie">Technologie</a></div></div><div class="layout footer-bottom"><span>© 2024 BMW ARCHIVE</span><span>Fait pour ceux qui aiment conduire.</span></div></footer>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true"><button class="drawer-close" id="drawerClose" type="button" aria-label="Fermer">×</button><div class="drawer-hero"><span id="drawerTag"></span><div class="car-illustration drawer-car" id="drawerCar"><span class="car-shadow"></span><span class="car-body"></span><span class="car-window"></span><span class="car-light"></span><span class="car-wheel wheel-a"></span><span class="car-wheel wheel-b"></span><span class="car-stripe"></span></div></div><div class="drawer-content"><p class="kicker" id="drawerKicker"></p><h2 id="drawerTitle">BMW M3 E30</h2><p class="drawer-intro" id="drawerIntro"></p><div class="drawer-facts" id="drawerFacts"></div><div class="drawer-description" id="drawerDescription"></div><div class="drawer-actions"><button class="button button-blue" id="drawerCompare" type="button">Ajouter au comparateur <span>+</span></button><button class="text-button" id="drawerFavorite" type="button">♡ Ajouter aux favoris</button></div></div></aside>
+  <div class="compare-bar" id="compareBar"><span><b id="compareCount">0</b> / 2 dans le comparateur</span><div id="compareNames"></div><button class="button button-blue" id="compareOpen" type="button">Comparer <span>→</span></button><button class="clear-button" id="compareClear" type="button">×</button></div>
+  <div class="compare-modal" id="compareModal" aria-hidden="true"><div class="compare-panel"><button class="drawer-close" id="compareClose" type="button">×</button><p class="kicker">Comparateur BMW</p><h2>Deux caractères.<br><em>Un verdict.</em></h2><div class="compare-table" id="compareTable"></div></div></div>
+  <div class="toast" id="toast"></div>
+  <script src="bmw-heritage.js"></script>
+</body>
+</html>
